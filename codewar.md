@@ -2,17 +2,21 @@ i recently sign in to codewar
 they provide problems & you need to code to solve them
 
 ## Problem 1 
-  **Problem Description** - Write a function to multiply two given number.
-  **Solution**
+  ###### **Problem Description** - Write a function to multiply two given number.
+  ###### **My Solution**
   ```javascript
   function multiply(a, b) {
     return a * b;
   }
   ```
+  ###### **Clever Solution**
+  what you want now, i think this is most simple and clever way to multiply two numbers 
+  
 
 ## Problem 2 
-  **Problem Description** - You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten      minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its    citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter    strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You know it takes you one minute to traverse one city    block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you        don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
-  **Solution**
+  ###### **Problem Description** -
+  You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten      minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its    citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter    strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You know it takes you one minute to traverse one city    block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you        don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+  ###### **Solution** (My code)
   ```javascript
   function isValidWalk(walk) {
     var directions = {
@@ -33,8 +37,21 @@ they provide problems & you need to code to solve them
     return walk.length === 10 && displacement.x === 0 && displacement.y === 0;
   }
   ```
+   ###### **Clever Solution** [other user code](https://www.codewars.com/users/rramesh)
+   ```javascript
+    function isValidWalk(walk) {
+     function count(val) {
+       return walk.filter(function(a){return a==val;}).length;
+     }
+     return walk.length==10 && count('n')==count('s') && count('w')==count('e');
+   }
+   ```
+   ###### **What I Learn From This Exercise**
+   * how we can use function inside function to increase productivity
+   * after saw this clever example, i learn about array new prototype methods, like filter, map, reduce, I found [this link](https://codeburst.io/array-methods-explained-filter-vs-map-vs-reduce-vs-foreach-ea3127c6d319) useful for new array methods
+   
 ## Problem 3
-  **problem description** - Find the missing letter
+  ###### **problem description** - Find the missing letter
   Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the    array. You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2. The array will always contain letters in only one case.
 Example:
 ['a','b','c','d','f'] -> 'e' <br>
@@ -43,7 +60,7 @@ Example:
 
 Have fun coding it and please don't forget to vote and rank this kata! :-)
 I have also created other katas. Take a look if you enjoyed this kata!
-  **Solution**
+  ###### **Solution**
   ```javascript
    function findMissingLetter(alphabetArray) {
     var isLowerCase = true;
@@ -68,3 +85,17 @@ I have also created other katas. Take a look if you enjoyed this kata!
     }
   }
   ```
+ ###### **Clever Solution** [other user code](https://www.codewars.com/users/cave.on)
+   ```javascript
+    function findMissingLetter(array) {
+     var codes = array.map(a => a.charCodeAt(0))
+     ,    last = codes.length - 1
+     ,     sum = codes.reduce((a, b) => a + b)
+     ,  expect = (codes[last] + codes[0]) * (codes[last] - codes[0] + 1) / 2;
+
+     return String.fromCharCode(expect - sum);
+   }
+   ```
+   ###### **What I Learn From This Exercise**
+   * new string method `charCodeAt` & `fromCharCode`, I never hear about them before, thats why i love this kind of activity.
+   * I use a long & big approch to solve this problem, i surprise with the [solution](https://www.codewars.com/kata/reviews/583a0b20cd2acc1d9900007e/groups/583cff1428a0c0f90d00004d) [cave.on](https://www.codewars.com/users/cave.on) provide, I like the way he solve problem.
