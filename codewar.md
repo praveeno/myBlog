@@ -28,7 +28,8 @@ function isValidWalk(walk) {
     x: directions['n'] - directions['s'],
     y: directions['e'] - directions['w']
   }
-  /*it take 1 min to traverse 1 block & I only have 10 minutes, & I also want to attend appointment, so i want to come from where i start.*/
+  /*it take 1 min to traverse 1 block & I only have 10 minutes, 
+  & I also want to attend appointment, so i want to come from where i start.*/
   return walk.length === 10 && displacement.x === 0 && displacement.y === 0;
 }
 ```
