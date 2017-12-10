@@ -65,8 +65,8 @@ I have also created other katas. Take a look if you enjoyed this kata!
    function findMissingLetter(alphabetArray) {
     var isLowerCase = true;
     // array of all alphabets
-    var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
-    'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 
+    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     // checking if alphabet is lowercase or not
     if(!(alphabetArray[0] == alphabetArray[0].toLowerCase())) {
       isLowerCase = false;
@@ -99,3 +99,30 @@ I have also created other katas. Take a look if you enjoyed this kata!
    ###### **What I Learn From This Exercise**
    * new string method `charCodeAt` & `fromCharCode`, I never hear about them before, thats why i love this kind of activity.
    * I use a long & big approch to solve this problem, i surprise with the [solution](https://www.codewars.com/kata/reviews/583a0b20cd2acc1d9900007e/groups/583cff1428a0c0f90d00004d) [cave.on](https://www.codewars.com/users/cave.on) provide, I like the way he solve problem.
+
+## Problem 4
+  ###### **problem description** - Sum of two lowest positive integers
+  Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the    array. You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2. The array will always contain letters in only one case.
+Example:
+['a','b','c','d','f'] -> 'e' <br>
+['O','Q','R','S'] -> 'P'<br>
+(Use the English alphabet with 26 letters!)
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+I have also created other katas. Take a look if you enjoyed this kata!
+  ###### **Solution**
+  ```javascript
+    function sumTwoSmallestNumbers(numbers){  
+      var sortedNumbers = numbers.sort(function(a, b){return a - b; });
+      return sortedNumbers[0] + sortedNumbers[1];
+    };
+  ```
+ ###### **Clever Solution** [other user code](https://www.codewars.com/users/ooflorent)
+   ```javascript
+    function sumTwoSmallestNumbers(numbers) {  
+      var [ a, b ] = numbers.sort((a, b) => a - b)
+      return a + b
+    }
+   ```
+   ###### **What I Learn From This Exercise**
+   * at first i thought this is wrong, because i saw `[a, b]` very first time. after some research i found that this is known as **[Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)** 
