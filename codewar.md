@@ -33,4 +33,47 @@ function isValidWalk(walk) {
   return walk.length === 10 && displacement.x === 0 && displacement.y === 0;
 }
 ```
+Problem 3
+*problem description* #Find the missing letter
 
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+
+Example:
+
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+(Use the English alphabet with 26 letters!)
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+
+
+```javascript
+function findMissingLetter(alphabetArray)
+{
+  var isLowerCase = true;
+  // array of all alphabets
+  var alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+  'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  // checking if alphabet is lowercase or not
+  if(!(alphabetArray[0] == alphabetArray[0].toLowerCase())) {
+    isLowerCase = false;
+    // making all given alphabets lower case  
+    alphabetArray = alphabetArray.map( function(alphabet) { 
+      return alphabet.toLowerCase()
+    });
+  }
+  var index = alphabets.indexOf(alphabetArray[0]);
+  var length = alphabetArray.length;
+  for(let i = 0; i < length; i++) {
+      if (!(alphabetArray[i] === alphabets[index])) {
+        return isLowerCase ? alphabets[index] : alphabets[index].toUpperCase()
+      }
+      index++;
+  }
+}
+```
