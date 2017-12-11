@@ -126,3 +126,41 @@ I have also created other katas. Take a look if you enjoyed this kata!
    ```
    ###### **What I Learn From This Exercise**
    * at first i thought this is wrong, because i saw `[a, b]` very first time. after some research i found that this is known as **[Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)** 
+   
+## Problem 5
+  ###### **problem description** - Stop gninnipS My sdroW!
+ Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+Examples:
+```
+spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
+spinWords( "This is a test") => returns "This is a test" 
+spinWords( "This is another test" )=> returns "This is rehtona test"
+```
+
+  ###### **Solution**
+  ```javascript
+    function spinWords(statement){
+      return statement.split(' ').map(function (word) {
+        if(word.length > 4) {
+          var a = word.split('')
+          b = a.reverse(),
+          c = b.join('')
+          return c
+        } else {
+         return word;
+        }
+      }).join(' ');
+    }
+  ```
+ ###### **Clever Solution** [other user code](https://www.codewars.com/users/katzoo)
+   ```javascript
+      function spinWords(words){
+        return words.split(' ').map(function (word) {
+          return (word.length > 4) ? word.split('').reverse().join('') : word;
+        }).join(' ');
+      }    
+   ```
+   ###### **What I Learn From This Exercise**
+   * basically my code is not so much different from cleverest code of [katzoo](https://www.codewars.com/users/katzoo), but i learn but ternary operator, and how this is making our code smaller.
+   * i understand how array split and join methods works, it feel very good.
