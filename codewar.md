@@ -161,6 +161,13 @@ spinWords( "This is another test" )=> returns "This is rehtona test"
         }).join(' ');
       }    
    ```
+   found another also
+   ```javascript
+     function spinWords(string){
+      return string.replace(/\w{5,}/g, function(w) { return w.split('').reverse().join('') })
+     }
+   ```
    ###### **What I Learn From This Exercise**
    * basically my code is not so much different from cleverest code of [katzoo](https://www.codewars.com/users/katzoo), but i learn but ternary operator, and how this is making our code smaller.
    * i understand how array split and join methods works, it feel very good.
+   * in second solution, i learn what is regex, really regex is very powerful thing, this thing works in theory of computation, and in compiler lexical phase also. 
