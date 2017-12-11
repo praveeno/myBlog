@@ -171,3 +171,74 @@ spinWords( "This is another test" )=> returns "This is rehtona test"
    * basically my code is not so much different from cleverest code of [katzoo](https://www.codewars.com/users/katzoo), but i learn but ternary operator, and how this is making our code smaller.
    * i understand how array split and join methods works, it feel very good.
    * in second solution, i learn what is regex, really regex is very powerful thing, this thing works in theory of computation, and in compiler lexical phase also. 
+
+## Problem 6
+  ###### **problem description** - Build Tower!
+Build Tower by the following given argument:
+number of floors (integer and always greater than 0).
+
+Tower block is represented as *
+Python: return a list;
+JavaScript: returns an Array;
+C#: returns a string[];
+PHP: returns an array;
+C++: returns a vector<string>;
+Haskell: returns a [String];
+Have fun!
+``` 
+for example, a tower of 3 floors looks like below
+[
+  '  *  ', 
+  ' *** ', 
+  '*****'
+]
+and a tower of 6 floors looks like below
+[
+  '     *     ', 
+  '    ***    ', 
+  '   *****   ', 
+  '  *******  ', 
+  ' ********* ', 
+  '***********'
+]
+```
+
+  ###### **Solution**
+  ```javascript
+  function towerBuilder(nFloors) {
+    var tower = []
+    debugger
+    for(var i = 0; i < nFloors; i++) {
+      var stars = (2*i + 1), 
+      floor = [],
+      highstStars = 2*nFloors -1, //lowest floor need higher amount of stars  
+      whitespaceNeeded = Math.abs(Math.ceil((highstStars - stars) / 2));
+
+      whitespaceNeeded && addWhiteSpace(floor, whitespaceNeeded);
+      for(var star = 0; star < stars; star++) { floor.push('*')}
+      whitespaceNeeded && addWhiteSpace(floor, whitespaceNeeded);
+      tower.push(floor.join(''));
+    }
+
+    function addWhiteSpace(floor, whitespace) {
+      while(whitespace) { floor.push(' '); whitespace--;}
+    }
+    return tower
+  }
+  ```
+ ###### **Clever Solution** [other user code](https://www.codewars.com/users/katzoo)
+   ```javascript
+   function towerBuilder(n) {
+      return [...Array(n)].map((_,i)=>" ".repeat(n-1-i)+"*".repeat(i*2+1)+" ".repeat(n-1-i))
+    }
+   ```
+   found another code also, which is interesting (this is under Best Practices)
+   ```javascript
+   function towerBuilder(n) {
+      return Array.from({length: n}, function(v, k) {
+        const spaces = ' '.repeat(n - k - 1);
+        return spaces + '*'.repeat(k + k + 1) + spaces;
+      });
+    }
+   ```
+   ###### **What I Learn From This Exercise**
