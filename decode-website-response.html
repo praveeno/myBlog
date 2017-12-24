@@ -1,0 +1,12 @@
+<h2> Hello guys </h2>
+recently i visit a <a href="https://www.owplus.com">search website</a> which search document based on entered query, 
+I curiously open developer tools, to see how they got the data, they call there server and in response get a series
+of random numbers, at first i thought that this must not the same api call that give data from server, but this is only api call
+so i think this is something wrong either with my lapy or i cant able to understand this thing.
+
+so i start looking into their client code, i found that their server respond with series of numbers, and they convert it into 
+a a long string using a loop and predefined string of character, that long string is actually a base 64 string which after decode
+convert into a json file, and now it can be use for further operation.
+
+
+
