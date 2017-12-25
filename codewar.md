@@ -294,3 +294,51 @@ JS students, like Python ones, must implement the diamond(n) method, and return 
     function line(spaces,stars){ return repeat(" ",spaces)+repeat("*",stars)+"\n"; }
    ```
    ###### **What I Learn From This Exercise**
+
+
+## Problem 8
+  ###### **problem description** - Duplicate Encoder
+Description:
+The goal of this exercise is to convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+Examples:
+
+"din" => "((("
+
+"recede" => "()()()"
+
+"Success" => ")())())"
+
+"(( @" => "))(("
+
+
+
+  ###### **Solution**
+  ```javascript
+  function duplicateEncode(word){
+    var d = {}, wordArray = word.split('');
+    wordArray = wordArray.map( function(w) { return w.toLowerCase()})
+    wordArray.map( function(w) {
+        d[w] = d[w] || 0
+        d[w]++;
+    })
+    return wordArray.map( function(w) {
+      if(d[w] > 1) return ')'
+      return '('
+    }).join('');
+}
+
+  ```
+ ###### **Clever Solution** [other user code](https://www.codewars.com/users/YpuaH)
+   ```javascript
+      function duplicateEncode(word){
+        return word
+          .toLowerCase()
+          .split('')
+          .map( function (a, i, w) {
+            return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+          })
+          .join('');
+      }
+   ```
+   ###### **What I Learn From This Exercise**
